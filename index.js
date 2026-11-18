@@ -18,6 +18,11 @@ app.post('/api/extract', async (req, res) => {
       dumpSingleJson: true,
       noWarnings: true,
       preferFreeFormats: true,
+      // Added header options to help bypass automated bot flags on cloud IPs
+      addHeader: [
+        'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+        'accept-language: en-US,en;q=0.9',
+      ],
     });
 
     const formats = [];
